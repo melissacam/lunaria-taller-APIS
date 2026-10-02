@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="ProductosService"
+  targetNamespace="http://lunaria.local/soap"
+  xmlns="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:tns="http://lunaria.local/soap"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <!-- 1. TIPOS: estructura de los datos -->
+  <types>
+    <xsd:schema targetNamespace="http://lunaria.local/soap" elementFormDefault="qualified">
+
+      <xsd:complexType name="Producto">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:string"/>
+          <xsd:element name="nombre" type="xsd:string"/>
+          <xsd:element name="descripcion" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="precio" type="xsd:double"/>
+          <xsd:element name="stock" type="xsd:int"/>
+          <xsd:element name="animo" type="xsd:string"/>
+          <xsd:element name="notas" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element name="horasQuemado" type="xsd:int" minOccurs="0"/>
+          <xsd:element name="color" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+      </xsd:complexType>
+
+      <xsd:element name="GetProductos">
+        <xsd:complexType><xsd:sequence>
+          <xsd:element name="animo" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="busqueda" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence></xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetProductosResponse">
+        <xsd:complexType><xsd:sequence>
+          <xsd:element name="producto" type="tns:Producto" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence></xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="GetProducto">
+        <xsd:complexType><xsd:sequence>
+          <xsd:element name="id" type="xsd:string"/>
+        </xsd:sequence></xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetProductoResponse">
+        <xsd:complexType><xsd:sequence>
+          <xsd:element name="producto" type="tns:Producto"/>
+        </xsd:sequence></xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="CrearProducto">
+        <xsd:complexType><xsd:sequence>
+          <xsd:element name="nombre" type="xsd:string"/>
+          <xsd:element name="descripcion" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="precio" type="xsd:double"/>
+          <xsd:element name="stock" type="xsd:int"/>
+          <xsd:element name="animo" type="xsd:string"/>
+          <xsd:element name="notas" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element name="horasQuemado" type="xsd:int" minOccurs="0"/>
+          <xsd:element name="color" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence></xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CrearProductoResponse">
+        <xsd:complexType><xsd:sequence>
+          <xsd:element name="producto" type="tns:Producto"/>
+        </xsd:sequence></xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="ActualizarProducto">
+        <xsd:complexType><xsd:sequence>
+          <xsd:element name="id" type="xsd:string"/>
+          <xsd:element name="nombre" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="descripcion" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="precio" type="xsd:double" minOccurs="0"/>
+          <xsd:element name="stock" type="xsd:int" minOccurs="0"/>
+          <xsd:element name="animo" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="notas" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element name="horasQuemado" type="xsd:int" minOccurs="0"/>
+          <xsd:element name="color" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence></xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizarProductoResponse">
+        <xsd:complexType><xsd:sequence>
+          <xsd:element name="producto" type="tns:Producto"/>
+        </xsd:sequence></xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="EliminarProducto">
+        <xsd:complexType><xsd:sequence>
+          <xsd:element name="id" type="xsd:string"/>
+        </xsd:sequence></xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminarProductoResponse">
+        <xsd:complexType><xsd:sequence>
+          <xsd:element name="eliminado" type="xsd:boolean"/>
+        </xsd:sequence></xsd:complexType>
+      </xsd:element>
+
+    </xsd:schema>
+  </types>
+
+  <!-- 2. MENSAJES: qué entra y qué sale en cada operación -->
+  <message name="GetProductosIn"><part name="parameters" element="tns:GetProductos"/></message>
+  <message name="GetProductosOut"><part name="parameters" element="tns:GetProductosResponse"/></message>
+  <message name="GetProductoIn"><part name="parameters" element="tns:GetProducto"/></message>
+  <message name="GetProductoOut"><part name="parameters" element="tns:GetProductoResponse"/></message>
+  <message name="CrearProductoIn"><part name="parameters" element="tns:CrearProducto"/></message>
+  <message name="CrearProductoOut"><part name="parameters" element="tns:CrearProductoResponse"/></message>
+  <message name="ActualizarProductoIn"><part name="parameters" element="tns:ActualizarProducto"/></message>
+  <message name="ActualizarProductoOut"><part name="parameters" element="tns:ActualizarProductoResponse"/></message>
+  <message name="EliminarProductoIn"><part name="parameters" element="tns:EliminarProducto"/></message>
+  <message name="EliminarProductoOut"><part name="parameters" element="tns:EliminarProductoResponse"/></message>
+
+  <!-- 3. PORT TYPE: la lista de operaciones disponibles -->
+  <portType name="ProductosPortType">
+    <operation name="GetProductos"><input message="tns:GetProductosIn"/><output message="tns:GetProductosOut"/></operation>
+    <operation name="GetProducto"><input message="tns:GetProductoIn"/><output message="tns:GetProductoOut"/></operation>
+    <operation name="CrearProducto"><input message="tns:CrearProductoIn"/><output message="tns:CrearProductoOut"/></operation>
+    <operation name="ActualizarProducto"><input message="tns:ActualizarProductoIn"/><output message="tns:ActualizarProductoOut"/></operation>
+    <operation name="EliminarProducto"><input message="tns:EliminarProductoIn"/><output message="tns:EliminarProductoOut"/></operation>
+  </portType>
+
+  <!-- 4. BINDING: cómo viajan los mensajes (SOAP 1.1 sobre HTTP) -->
+  <binding name="ProductosBinding" type="tns:ProductosPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetProductos">
+      <soap:operation soapAction="http://lunaria.local/soap/GetProductos"/>
+      <input><soap:body use="literal"/></input><output><soap:body use="literal"/></output>
+    </operation>
+    <operation name="GetProducto">
+      <soap:operation soapAction="http://lunaria.local/soap/GetProducto"/>
+      <input><soap:body use="literal"/></input><output><soap:body use="literal"/></output>
+    </operation>
+    <operation name="CrearProducto">
+      <soap:operation soapAction="http://lunaria.local/soap/CrearProducto"/>
+      <input><soap:body use="literal"/></input><output><soap:body use="literal"/></output>
+    </operation>
+    <operation name="ActualizarProducto">
+      <soap:operation soapAction="http://lunaria.local/soap/ActualizarProducto"/>
+      <input><soap:body use="literal"/></input><output><soap:body use="literal"/></output>
+    </operation>
+    <operation name="EliminarProducto">
+      <soap:operation soapAction="http://lunaria.local/soap/EliminarProducto"/>
+      <input><soap:body use="literal"/></input><output><soap:body use="literal"/></output>
+    </operation>
+  </binding>
+
+  <!-- 5. SERVICE: dónde vive el servicio -->
+  <service name="ProductosService">
+    <port name="ProductosPort" binding="tns:ProductosBinding">
+      <soap:address location="http://localhost:3003/soap"/>
+    </port>
+  </service>
+</definitions>
