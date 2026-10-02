@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lunaria · velas para cada ánimo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
+  </head>
+  <body class="font-sans antialiased">
+    <div id="navbar"></div>
+
+    <main class="mx-auto max-w-6xl px-5 pb-28">
+      <section class="grid items-end gap-10 pb-8 pt-14 md:grid-cols-[1.4fr_1fr]">
+        <div>
+          <p class="mb-4 text-xs uppercase tracking-[0.25em] opacity-60">velas artesanales · pequeñas tiradas</p>
+          <h1 class="font-display text-5xl font-bold leading-[0.95] md:text-7xl">
+            ¿Cómo quieres <em class="font-medium text-brasa">sentirte</em> esta noche?
+          </h1>
+        </div>
+        <p class="max-w-sm text-lg opacity-75">
+          Aquí no ordenamos las velas por aroma, sino por lo que despiertan. Elige un ánimo y la casa entera cambia de color.
+        </p>
+      </section>
+
+      <section aria-label="Elegir ánimo"><div id="moods" class="flex flex-wrap gap-3"></div></section>
+
+      <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2">
+        <input id="buscar" type="search" placeholder="Busca una nota: lavanda, café, rosa…"
+          class="w-full max-w-md border-0 border-b-2 border-ciruela/20 bg-transparent py-2 outline-none placeholder:text-ciruela/40 focus:border-ciruela" />
+        <p id="estado" class="text-sm opacity-60" aria-live="polite"></p>
+      </div>
+
+      <section id="grid" class="mt-14 grid gap-x-7 gap-y-14 sm:grid-cols-2 lg:grid-cols-3 lg:[&>article:nth-child(3n+2)]:translate-y-8"></section>
+    </main>
+
+    <dialog id="modal" class="m-auto w-[min(92vw,34rem)] rounded-[2.5rem_1rem_2.5rem_1rem] bg-crema p-0 text-ciruela backdrop:bg-ciruela/30 backdrop:backdrop-blur-sm"></dialog>
+
+    <script type="module" src="/src/pages/catalogo.js"></script>
+  </body>
+</html>
