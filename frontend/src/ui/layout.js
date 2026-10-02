@@ -28,7 +28,7 @@ export function montarLayout(activo) {
   function dibujar() {
     const actual = obtenerApiActiva();
     raiz.innerHTML = `
-      <header class="sticky top-0 z-30 border-b border-ciruela/10 bg-crema/80 backdrop-blur">
+      <header class="print:hidden sticky top-0 z-30 border-b border-ciruela/10 bg-crema/80 backdrop-blur">
         <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-8 gap-y-3 px-5 py-3">
           <a href="/index.html" class="font-display text-2xl font-bold tracking-tight">Lunaria<span class="text-brasa">.</span></a>
           <nav class="flex items-center gap-6 text-sm font-medium">
@@ -59,7 +59,7 @@ export function montarLayout(activo) {
 
   // Indicador flotante: muestra por dónde viajó la última petición
   const chip = document.createElement('div');
-  chip.className = 'fixed bottom-4 left-4 z-40 hidden rounded-full border border-ciruela/10 bg-white/90 px-4 py-2 text-xs font-medium shadow-lg';
+  chip.className = 'print:hidden fixed bottom-4 left-4 z-40 hidden rounded-full border border-ciruela/10 bg-white/90 px-4 py-2 text-xs font-medium shadow-lg';
   chip.setAttribute('aria-live', 'polite');
   document.body.appendChild(chip);
   alRegistrar(({ api, etiqueta, ms, bytes }) => {

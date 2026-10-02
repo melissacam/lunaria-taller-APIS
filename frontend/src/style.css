@@ -40,3 +40,7 @@ body {
   .llama, .aparece { animation: none; }
   body { transition: none; }
 }
+
+@media print {
+  body { background: #fff; }
+}
