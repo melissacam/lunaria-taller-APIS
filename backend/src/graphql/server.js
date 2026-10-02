@@ -15,3 +15,5 @@ await conectarDB();
 createServer(yoga).listen(puerto, () =>
   console.log(`API GraphQL en http://localhost:${puerto}/graphql`)
 );
+
+//probar npm run dev:graphql
