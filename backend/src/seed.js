@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 import { conectarDB } from './config/db.js';
 import { Producto } from './models/Producto.js';
 
+//Borra y llena la colección con 8 velas de ejemplo
+
 const velas = [
   { nombre: 'Bruma de Lavanda', descripcion: 'Una pausa en forma de vela para cerrar el día.', precio: 14.5, stock: 25, animo: 'calma', notas: ['lavanda', 'camomila', 'vainilla'], horasQuemado: 40, color: '#D9CFF2' },
   { nombre: 'Té Blanco y Luna', descripcion: 'Ligera, limpia, casi silenciosa.', precio: 16, stock: 18, animo: 'calma', notas: ['té blanco', 'pera', 'almizcle'], horasQuemado: 35, color: '#CFE3F5' },
