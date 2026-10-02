@@ -13,6 +13,8 @@
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1",
+    "graphql": "^17.0.2",
+    "graphql-yoga": "^5.24.1",
     "mongoose": "^9.10.3"
   }
 }
