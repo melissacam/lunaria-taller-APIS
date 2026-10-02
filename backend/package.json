@@ -1,0 +1,18 @@
+{
+  "name": "lunaria-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend de Lunaria: APIs REST, GraphQL y SOAP sobre MongoDB",
+  "type": "module",
+  "scripts": {
+    "seed": "node --env-file=.env src/seed.js",
+    "dev:rest": "node --watch --env-file=.env src/rest/server.js",
+    "dev:graphql": "node --watch --env-file=.env src/graphql/server.js",
+    "dev:soap": "node --watch --env-file=.env src/soap/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mongoose": "^9.10.3"
+  }
+}
