@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/* Paleta y tipografías de Lunaria: Tailwind genera clases como bg-lila, text-ciruela, font-display */
+@theme {
+  --color-crema: #fff8f0;
+  --color-lila: #d9cff2;
+  --color-durazno: #ffd9c7;
+  --color-menta: #cdebdd;
+  --color-bruma: #cfe3f5;
+  --color-ciruela: #4a3f5c;
+  --color-brasa: #f4a988;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+}
+
+/* El fondo de la página cambia según el ánimo elegido (variable --ambiente) */
+body {
+  background-color: var(--ambiente, #fff8f0);
+  color: var(--color-ciruela);
+  transition: background-color 0.7s ease;
+}
+
+.llama {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: parpadeo 3s ease-in-out infinite;
+}
+@keyframes parpadeo {
+  0%, 100% { transform: scale(1) rotate(-1deg); }
+  50% { transform: scale(1.06, 0.95) rotate(1.5deg); }
+}
+
+.aparece { animation: aparece 0.6s ease both; }
+@keyframes aparece {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .llama, .aparece { animation: none; }
+  body { transition: none; }
+}
+
+@media print {
+  body { background: #fff; }
+}

@@ -44,9 +44,10 @@ async function ejecutar(fn) {
 const servicios = {
   ProductosService: {
     ProductosPort: {
-      GetProductos: (args = {}) =>
+            GetProductos: (args) =>
         ejecutar(async () => {
-          const lista = await servicio.listar({ animo: args.animo, busqueda: args.busqueda });
+          const { animo, busqueda } = args ?? {};   // args puede llegar como null
+          const lista = await servicio.listar({ animo, busqueda });
           return { producto: lista.map(aProducto) };
         }),
 
